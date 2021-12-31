@@ -1,25 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
+import Quiz from "Components/Quiz";
+import { Button } from "antd";
+import { EditOutlined } from '@ant-design/icons';
+import { useNavigate } from "react-router-dom";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	const navigate = useNavigate();
+	
+	return (
+		<div>
+			<Quiz />
+			<Button type="primary" style={{ marginTop: 10 }} onClick={() => navigate('/edit')} icon={<EditOutlined />}>
+				Edit Quiz
+			</Button>
+		</div>
+	);
 }
 
 export default App;
